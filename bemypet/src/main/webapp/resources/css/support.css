@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+/* @media screen and (min-width:1450px) { */
+    .spt {
+        display:flex; justify-content:center; align-items:center;
+        width:1300px; margin:120px auto;
+    }
+    .spt-btn {
+        display:flex; 
+        width:280px; height:50px; margin:10px;
+        line-height:50px;
+    }
+    .spt-btn i {
+        padding:2px 20px;
+        font-size:25px; color:#f6f6f6;
+    }
+    .bar {
+        margin:5px 0;
+        width:1px; height:40px;
+        background:#f6f6f6;
+    }
+    .spt-btn a {
+        padding:0 20px;
+        font-size:18px; color:#f6f6f6;
+    }
+    .spt-btn button {
+        padding:0 20px; font-family:EliceLight;
+        font-size:18px; color:#f6f6f6; 
+    }
+    .spt-btn1 {background:#402b15;;}
+    .spt-btn2 {background:#d09259;; }
+    .sub-support li p { font-size:14px;}
+    /*-------------button--------------------- */
+    .bon-btn { cursor: pointer; }
+    .bon-btn {
+        position: relative; 
+        width: 100%; height: 100%; padding: 0 2rem;        
+        color: #fff; 
+        background:rgba(64, 43, 21, 0.8); background-size: 400%; border: none;   
+        overflow: hidden; cursor: pointer;
+    }
+    .bon-btn:hover::before { transform: scaleX(1); }
+    .bon-btn-content { position: relative; z-index: 1; }
+    .bon-btn::before {
+        position: absolute; top: 0; left: 0;
+        width: 100%; height: inherit;
+        background:rgba(255, 212, 80, 0.9);
+        transform: scaleX(0); transform-origin: 0 50%; transition: all 0.475s;
+        content: "";
+    }
+    /*-------------button--------------------- */
+    .sub-input { 
+        width:100%; height:30px; margin-top:10px; padding-left:3px;
+        border:1px solid black; 
+    }
+    .sub-input {
+        width:100%; height: 2.5em; padding-left: 0.8em;
+        border: 2px solid transparent; border-radius: 10px;
+        background-color:  #e4ceaf;
+        outline: none; overflow: hidden;
+        transition: all 0.5s;
+    }
+    .sub-input:hover, .sub-input:focus {
+        background-color: white; box-shadow: 0px 0px 0px 7px rgba(255, 212, 80, 0.7);
+        background:rgba(254, 217, 32, 0.7 );
+    }  
+    .modal {
+        display:none;
+        position:fixed; left:50%; top:50%;
+        width:500px; height:730px; padding:20px;
+        text-align:center;
+        background:#faf4ea;
+        transform:translate(-50%,-50%);
+        z-index:999;
+    }
+    .close-btn {
+        position:absolute; top:10px; right:20px;
+        font-size:40px; cursor:pointer;
+    }
+
+    .sub-support { font-size:18px;  }
+    .sub-support li { margin:20px; }
+    .sub-supportamount { display:flex; justify-content:center; align-items:center; }
+    
+    
+
+    /* --------체크박스--------------*/
+
+  
+
+    

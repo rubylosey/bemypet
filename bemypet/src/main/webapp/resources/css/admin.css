@@ -1,0 +1,133 @@
+@charset "UTF-8";
+a:hover { text-decoration:none; }
+
+.bn-adm { height:300px; margin-top: -20px; background:#ffd450; }
+.bn-adm h2 { padding-top:200px; text-align:center; font-size:50px; color:#a10702; }
+.page-txt { padding-top:60px; text-align:center; }
+
+/*
+.fill-in-wrap {
+	width:340px; margin:25px auto 0; padding:30px;	
+	border:1px solid #e2e2e2;
+}
+*/
+.inform-wrap { margin-top:55px; }
+
+/*.fill-in-wrap li { display:flex; justify-content:space-between; align-items:center; }*/
+
+.fill-in {
+	width:100%; height:40px; margin-top:10px; padding-left:10px;
+	font-size:18px; line-height:32px;
+}
+.fill-in:focus { background:#ffd450;  }
+
+
+.btnWrap {
+	display:flex; justify-content:space-between;
+	width:340px; margin:15px auto; }
+
+/*
+#join-form li {
+	display:flex; justify-content:space-between; align-items:center;
+	margin-top:10px;	
+	}
+	
+#join-form p, #join-form label { margin-bottom:-5px; font-size:12px;  }
+#join-form span { padding-top:5px; }
+
+#join-form li:nth-child(3) { width:50%; padding-left:0; } 
+#join-form li:nth-child(7), #join-form li:nth-child(8) { justify-content:flex-start; }
+#join-form li:nth-child(7) > input { margin-left: 20px; }
+#join-form li:nth-child(7) > label { margin:0 0 -5px 10px;  }
+#join-form li:nth-child(8) > input { width:85%; }
+#join-form li:nth-child(12) > a {display:inline-block; font-size:12px; }
+#join-form .btn { margin-top:10px; }
+
+*/
+.adm-mb-list {font-size: 14px; }
+
+/*.table a { display:inline-block; }*/
+
+
+.push-flex {
+	width:50%; height:45px; margin:15px 0;
+	font-family:Elicelight; font-size:16px; color:#333;
+	background:#ffd450; border-radius:5px;
+}
+/*label { line-height:45px; }
+
+/*====== container ======*/
+	.container { width:1300px; margin:100px auto; }
+	.container-overflow-x { width:1300px; margin:100px auto; overflow-x:scroll; }
+	.wrap-flex { display:flex; justify-content:space-between; padding:20px 0; }
+	
+	
+	
+	
+	
+	
+
+/*======admin container ======*/
+.adm-container {display:flex; flex-wrap:wrap;}
+#a-search, #b-search, #m-search, #v-search, #ct-search, #e-search {display:block; width:250px; margin:30px auto;}
+.adm-wrap {width:46%; height:300px; margin:30px 2%; overflow:scroll;}
+.adm-adopt { width:100%; height:400px; margin:30px 2%; overflow-y:scroll; }
+
+
+.ag-list, .ab-list, .am-list {width:100%; border-collapse:collapse;}
+.ag-list th, .ag-list td, .ab-list th, .ab-list td, .am-list th, .am-list td {padding:5px 10px; font-size:15px; text-align:center;}
+.ag-list th, .ab-list th, .am-list th {background:#eee;}
+.ag-list td, .ab-list td, .am-list td {background:#f8f8f8; border-bottom:1px solid #ccc;}
+.ag-list a, .ab-list a, .am-list a {color:#0652DD; font-weight:700;}	
+
+.adt-split-below h4 {font-size:32px; text-align:center;}
+.adm-text h4 {font-size:32px; text-align:center;}
+.adm-text {margin:20px auto 0;}
+
+
+
+/* ======== 차트 ================ */
+
+.adt-split {display:flex; justify-content:space-between; padding-bottom:20px;}
+.adt-split-below {width:48%;}
+.adt-split-below h4, .adm-split-below p {padding-top:20px;}
+.adt-split-below progress {margin-top:5px;}
+.adt-split-below .adt-small, .adt-split-below .a-box {padding:0 12px; background:#3867d6;}
+.adt-split-below .adt-middle, .adt-split-below .b-box {padding:0 12px; background:#eb3b5a;}
+.adt-split-below .adt-large, .adt-split-below .c-box {padding:0 12px; background:#402b15;}
+.adt-split-below .d-box {padding:0 12px; background:#ffd450;}
+
+
+.progress-result {position:relative; margin-top:10px;}
+.sm-result, .md-result, .lg-result, .a-result, .b-result, .c-result, .d-result {position:absolute; right:20px; z-index:9;}
+.sm-result {top:9px;}
+.md-result {top:46px;}
+.lg-result {top:83px;}
+
+.a-result {top:9px;}
+.b-result {top:46px;}
+.c-result {top:83px;}
+.d-result {top:120px;}
+
+ progress {width:100%; height:30px; appearance: none;}
+progress::-webkit-progress-bar {
+    background:#f0f0f0;
+    border-radius:15px;
+    box-shadow: inset 3px 3px 10px #ccc;
+}
+.progress-blue::-webkit-progress-value {
+    border-radius:15px;
+    background: linear-gradient(to right, #4b7bec, #3867d6);
+}
+.progress-red::-webkit-progress-value {
+    border-radius:15px;
+    background: linear-gradient(to right, #fc5c65, #eb3b5a);
+}
+.progress-success::-webkit-progress-value {
+    border-radius:15px;
+    background: linear-gradient(to right, #402b15, #402b15);
+}
+.progress-yellow::-webkit-progress-value {
+    border-radius:15px;
+    background: linear-gradient(to right, #ffd450, #ffd450);
+}

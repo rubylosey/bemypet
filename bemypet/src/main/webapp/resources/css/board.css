@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+.b-search li { display:flex; }
+.b-search input { margin-right:5px; }
+.b-search label { margin-right:10px; }
+
+.dataTables_info { position:absolute; left:0; top:50px; }
+.pagination { position:absolute; right:0; top:50px; }
+
+
+
+.b-inform-wrap {
+      width:610px; margin:30px auto 0; padding:30px 60px;   
+      border:1px solid #e2e2e2; border-radius:10px;
+}
+.b-inform-wrap li { width:100%; height:40px; }
+.b-flex { display:flex; }
+.b-inform-wrap a { display:inline-block; }
+.b-inform-wrap a:hover { text-decoration:none; }
+.b-inform-wrap .t-btnWrap { width:100%; padding:0; }
+
+
+.u-fill-in-wrap li:nth-child(3) { width:100%; height:30px; }
+.fill-in-wrap textarea { width:100%; height:80%; padding:5px 10px; }
+
+
+#file { padding-top:10px; }
+
+input#html, input#txt { margin:0 5px; }
+
+#post-form li:nth-child(6) { justify-content:flex-start; }
+
+td a { display:inline-block; }
+
+
+/*===== list =====*/
+
+
+
+/*===== list =====*/
+.search-wrap {  text-align:center; }
+.search-wrap div { margin:30px 0; }
+
+.boardList {width:1000px; margin:30px auto; border-collapse:collapse;}
+.boardList th, .boardList td {padding:10px 15px; text-align:center;}
+.boardList th {background:#eee;}
+.boardList td {background:#f8f8f8; border-bottom:1px solid #ccc;}
+.boardList td:nth-child(1) {width:300px;}
+.blit {margin:0 5px; padding:10px; color:#f6f6f6;  line-height:30px; border-radius:50%;}
+.b-blit {background:#0984e3;}
+.r-blit {background:#e17055;}
+
+.board-wrap {display:flex; justify-content:center;}
+#search-select {width:150px;}
+#search-form {width:250px;}
+
+ul.b-list .listcontent { height:500px; }
+
+.b-list, .b-modlist {width:800px; margin:30px auto;}
+.b-list li, .b-modlist li, .re-list li {padding:10px 0;}
+.b-list li h3 {color:#006266;}
+.b-list li:last-child, .b-modlist li:last-child {display:flex; justify-content:center; padding-top:30px;}
+
+
+.b-modlist li:first-child {display:flex; justify-content:space-between; align-items:center;}
+
+
+/*===== reply =====*/
+.re-reglist {
+   width:800px; margin:15px auto; padding:5px 15px;
+   background:#F4F4F4; border-top:2px solid #CCC; border-bottom:2px solid #CCC;
+}
+.re-reglist li {display:flex; justify-content:space-between; align-items:center;}
+.re-reglist li:last-child {padding-top:5px;}
+
+.re-reglist input { background:none; }
+
+.re-list {
+   width:800px; margin:15px auto; padding:5px 15px;
+   background:#FBFBF7; border-top:2px solid #549000; border-bottom:2px solid #549000;
+}
+.re-list li {display:flex; justify-content:space-between;}
+.re-list li:first-child {border-bottom:1px dashed #718093;}
+.re-list  .re-content {width:75%; padding:10px; border:1px solid #06f; border-radius:5px;}
+
+
+/*===== 페이징 처리 =====*/
+.pagenation {display:flex; justify-content:center; margin-top:50px;}
+.pagenation a {padding:10px 15px; background:#e4ceaf;}
+.pagenation a.active {color:#f6f6f6; background:#402b15;}
+.pagenation a.prev, .pagenation a.next {color:#f6f6f6; background:#a10702;}
+.pagenation a.prev {border-radius:10px 0 0 10px;}
+.pagenation a.next {border-radius:0 10px 10px 0;}
+

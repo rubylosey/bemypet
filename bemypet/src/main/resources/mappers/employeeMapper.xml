@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace = "org.bemypet.mappers.employee">
+  
+  	<!-- 직원 목록 -->
+  	<select id="list" resultType="org.bemypet.domain.EmployeeVO">
+  		select empid, emppass, empname, department, emptel, empemail, joindate
+  		from tbl_employee
+  	</select>
+  	
+  	<!-- 직원 조회 -->
+  	<select id="view" parameterType="String" resultType="org.bemypet.domain.EmployeeVO">
+  		select empid, empname, department, emptel, empemail, joindate
+  		from tbl_employee
+  		where empid=#{empid}
+  	
+  	</select>  
+  	
+  	
+  	<!-- 직원 등록 -->
+  	<insert id="register">
+  		insert into tbl_employee (empid, emppass, empname, department, emptel, empemail, joindate )
+  		values(#{empid}, #{emppass}, #{empname}, #{department}, #{emptel}, #{empemail}, now())
+  	</insert>
+  	
+  	<!-- 아이디 중복 확인 -->
+  	<select id="idCheck" resultType="org.bemypet.domain.EmployeeVO">
+  		select empid
+  		from tbl_employee
+  		where empid=#{empid}
+  	</select>
+  	
+  	<select id="login" resultType="org.bemypet.domain.EmployeeVO">
+  		select empid, emppass, empname, department, emptel, empemail, joindate
+  		from tbl_employee
+  		where empid=#{empid} and emppass=#{emppass}
+  	</select>
+  	
+  	<!-- 회원 수정 -->
+	<update id="modify">
+		update tbl_employee set
+			empid=#{empid}, 
+			
+			empname=#{empname}, 
+			department=#{department},
+			emptel=#{emptel}, 
+			empemail=#{empemail}			
+		where empid=#{empid}
+	</update>
+  	
+  	
+  	
+  
+  </mapper>

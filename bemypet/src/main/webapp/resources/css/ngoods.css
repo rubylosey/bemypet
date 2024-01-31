@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+
+/*===== list =====*/
+#g-row {display:flex; flex-wrap:wrap;}
+#g-row li {width:300px; margin:15px; padding:20px; background:#eee; border-radius:10px;}
+#g-row li img {width:100%;}
+#g-row h3 {
+	padding:10px 0;
+	font-size:22px; text-align:center;	border-bottom:1px dashed #009432;
+}
+#g-row p.p-num {padding-top:20px;}
+#g-row a {padding:5px 0; color:#06f;}
+
+
+/*===== register =====*/
+.g-register {width:600px; margin:0 auto; padding:20px; background:#f2f2f2; border-radius:10px;}
+.g-register li {padding:5px 0;}
+.g-register li .valueform {width:45.5%; margin:0 2%;}
+.g-register li:last-child {display:flex; justify-content:center; padding-top:30px;}
+
+
+/*===== modify =====*/
+.g-modify {width:600px; margin:0 auto; padding:20px; background:#f2f2f2; border-radius:10px;}
+.g-modify li {display:flex; justify-content:space-between; align-items:center; padding:5px 0;}
+.g-modify li:nth-child(9), .g-modify li:nth-child(10) {display:block;}
+.g-modify li .valueform {width:80%;}
+.g-modify li:last-child {display:flex; justify-content:center; padding-top:30px;}
+
+
+/*===== view =====*/
+.goods-view {
+	display:flex; justify-content:space-between;
+	width:800px; margin:0 auto; padding:20px;
+	background:#f2f2f2; border-radius:10px;
+}
+.goods-view img {width:400px;}
+.goods-view h3 {padding:10px 0; font-size:22px; color:#0652DD; text-align:center;}
+.goods-view p {padding:5px 0; border-bottom:1px dashed #aaa;}
+.goods-view .btn-group {width:320px; padding-top:40px;}
+
+.goods-contents {width:800px; margin:50px auto;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

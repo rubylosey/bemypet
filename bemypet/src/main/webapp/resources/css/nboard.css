@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+
+/*===== list =====*/
+.boardList {width:800px; margin:30px auto; border-collapse:collapse;}
+.boardList th, .boardList td {padding:10px 15px; text-align:center;}
+.boardList th {background:#eee;}
+.boardList td {background:#f8f8f8; border-bottom:1px solid #ccc;}
+.boardList td:nth-child(1) {width:300px;}
+.blit {margin:0 5px; padding:10px; color:#f6f6f6; border-radius:50%;}
+.b-blit {background:#0984e3;}
+.r-blit {background:#e17055;}
+
+.board-wrap {display:flex; justify-content:center;}
+#search-select {width:150px;}
+#search-form {width:250px;}
+
+
+.b-list, .b-modlist {width:800px; margin:30px auto;}
+.b-list li, .b-modlist li, .re-list li {padding:10px 0;}
+.b-list li h3 {color:#006266;}
+.b-list li:last-child, .b-modlist li:last-child {display:flex; justify-content:center; padding-top:30px;}
+
+
+.b-modlist li:first-child {display:flex; justify-content:space-between; align-items:center;}
+
+
+/*===== reply =====*/
+.re-reglist {
+	width:800px; margin:15px auto; padding:5px 15px;
+	background:#F4F4F4; border-top:2px solid #CCC; border-bottom:2px solid #CCC;
+}
+.re-reglist li {display:flex; justify-content:space-between; align-items:center;}
+.re-reglist li:last-child {padding-top:5px;}
+
+.re-list {
+	width:800px; margin:15px auto; padding:5px 15px;
+	background:#FBFBF7; border-top:2px solid #549000; border-bottom:2px solid #549000;
+}
+.re-list li {display:flex; justify-content:space-between;}
+.re-list li:first-child {border-bottom:1px dashed #718093;}
+.re-list  .re-content {width:75%; padding:10px; border:1px solid #06f; border-radius:5px;}
+
+
+/*===== 페이징 처리 =====*/
+.pagenation {display:flex; justify-content:center; margin-top:50px;}
+.pagenation a {padding:10px 15px; background:#E6FFE6;}
+.pagenation a.active {color:#f6f6f6; background:#009432;}
+.pagenation a.prev, .pagenation a.next {color:#f6f6f6; background:#0652DD;}
+.pagenation a.prev {border-radius:10px 0 0 10px;}
+.pagenation a.next {border-radius:0 10px 10px 0;}
+
+
+

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+
+.adm-container {display:flex; flex-wrap:wrap;}
+#g-search, #b-search, #m-search {display:block; width:250px; margin:30px auto;}
+.adm-wrap {width:46%; height:300px; margin:30px 2%; overflow:hidden;}
+
+
+.ag-list, .ab-list, .am-list {width:100%; border-collapse:collapse;}
+.ag-list th, .ag-list td, .ab-list th, .ab-list td, .am-list th, .am-list td {padding:5px 10px; font-size:15px; text-align:center;}
+.ag-list th, .ab-list th, .am-list th {background:#eee;}
+.ag-list td, .ab-list td, .am-list td {background:#f8f8f8; border-bottom:1px solid #ccc;}
+.ag-list a, .ab-list a, .am-list a {color:#0652DD; font-weight:700;}

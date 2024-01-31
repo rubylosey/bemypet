@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+/* 로고 서체 */
+@font-face { 
+    font-family:LilitaOne;
+    src:url('../fonts/LilitaOne-Regular.eot');
+    src:url('../fonts/LilitaOne-Regular.woff') format('woff');
+}
+
+/* 한글 제목(타이틀) 서체 */
+@font-face { 
+    font-family:hanGangB;
+    src:url('../fonts/SeoulHangangB.eot');
+    src:url('../fonts/SeoulHangangB.woff') format('woff');
+}
+/* 한글 본문 서체 */
+@font-face { 
+    font-family:EliceLight;
+    src:url('../fonts/EliceDXNeolli-Light.eot');
+    src:url('../fonts/EliceDXNeolli-Light.woff') format('woff');
+}
+@font-face { 
+    font-family:EliceMedium;
+    src:url('../fonts/EliceDXNeolli-Medium.eot');
+    src:url('../fonts/EliceDXNeolli-Medium.woff') format('woff');
+}
+/* 영문 제목(타이틀) 서체 */
+@font-face { 
+    font-family:LoraRegular;
+    src:url('../fonts/Lora-Regular.eot');
+    src:url('../fonts/Lora-Regular.woff') format('woff');
+}
+@font-face { 
+    font-family:LoraMedium;
+    src:url('../fonts/Lora-Medium.eot');
+    src:url('../fonts/Lora-Medium.woff') format('woff');
+}
+@font-face { 
+    font-family:LoraSemibold;
+    src:url('../fonts/Lora-SemiBold.eot');
+    src:url('../fonts/Lora-SemiBold.woff') format('woff');
+}
+@font-face { 
+    font-family:LoraBold;
+    src:url('../fonts/Lora-Bold.eot');
+    src:url('../fonts/Lora-Bold.woff') format('woff');
+}
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+/* font-family: 'Lora', serif; */
+
+/* 영문 본문 서체 */
+@font-face { 
+    font-family:BlinkerRegular;
+    src:url('../fonts/Blinker-Regular.eot');
+    src:url('../fonts/Blinker-Regular.woff') format('woff');
+}
+@font-face { 
+    font-family:BlinkerSemiBold;
+    src:url('../fonts/Blinker-SemiBold.eot');
+    src:url('../fonts/Blinker-SemiBold.woff') format('woff');
+}
+@font-face { 
+    font-family:BlinkerBold;
+    src:url('../fonts/Blinker-Bold.eot');
+    src:url('../fonts/Blinker-Bold.woff') format('woff');
+}
+
+/* 메인컬러: #402b15; (브라운) #ffd450; (옐로우) */
+/* 서브컬러: #c8691c; (찐주황) #d09259; (연주황) #e4ceaf; (살구색) #faf4ea; (아이보리) #a10702; (레드) */
+/* 서브컬러: #562a0e; (찐밤) #78380c; (밤색) #fed920; (개나리) #ebb912; (찐개나리) */
+/* 추가서브컬러: #e4ceaf #f0ebce #fff0d7 */
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family:EliceLight;
+    font-size:16px; color:#402b15; font-weight:400;
+    background:#fff;
+}
+
+h1 { font-family:LilitaOne; }
+
+h2, h3, h5 { font-family:LoraRegular; }
+h4, h6 { font-family:hanGangB; font-weight:normal; }
+
+ul li { list-style:none; }
+a { display:block; color:#333; text-decoration:none; border:0; outline:0; }
+img { display:block; border:0; outline:0; }
+
+
+.btn {
+    display:inline-block;
+    height:50px; padding:0 29px;
+    color:#402b15;
+    text-align:center; line-height:50px;
+    border:1px solid #402b15 ; border-radius:25px;
+    transition:all 0.4s ease-in;
+}
+.btn:hover {
+    color:#fff; background:#402b15; 
+    transition:all 0.4s ease-in;
+}
+
+
+.bn h2 {
+    color:#f6f6f6; font-weight:400;
+    text-transform:uppercase; text-align:center;
+}
+.bn h2 > span { color:#ffd450; }
+.subtitle h3 { font-weight:400; text-transform:uppercase; }
+.subtitle-bar { background:#a10702; }
+
+
+
+
+
+/*===== FLAT UI GERMAN PALETTE =====*/
+.abtn {
+	margin:0 2px; padding:10px 15px;
+	font-size:16px; font-family: 'Noto Sans KR', sans-serif; color:#f6f6f6; 
+	border:0; border-radius:5px; cursor:pointer;
+	transition:all 0.4s ease-in;
+}
+.abtn-primary {background:#a10702;}
+.abtn-danger {background:#fc5c65;}
+.abtn-success {background:#2bcbba;}
+.abtn-info {background:#78380c;}
+.abtn-warning {background:#fd9644;}
+.abtn-default {color:#333; background:#ddd;}
+.abtn-primary:hover {background:#ebb912;}
+.abtn-danger:hover {background:#eb3b5a;}
+.abtn-success:hover {background:#0fb9b1;}
+.abtn-info:hover {background:#402b15;}
+.abtn-warning:hover {background:#fa8231;}
+.abtn-default:hover {color:#f6f6f6; background:#778ca3;}
+
+
+

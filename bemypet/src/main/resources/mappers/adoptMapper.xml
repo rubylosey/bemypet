@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "org.bemypet.mappers.adopt">
+
+	<!-- 강아지 예약버튼 클릭시 조회 페이지 -->
+	<select id="aview" parameterType="int" resultType="org.bemypet.domain.AdoptVO">
+		select dno, dogname
+		from tbl_dog
+		where dno=#{dno}	
+	</select>
+
+	<!-- 유기견 목록 -->
+	<select id="list" resultType="org.bemypet.domain.AdoptVO">
+		select * from tbl_dog
+		order by dno desc
+	</select>
+	
+	<!-- 유기견 조회 -->
+	<select id="view" parameterType="int" resultType="org.bemypet.domain.AdoptVO">
+		select * from tbl_dog
+		where dno = #{dno}
+	</select>
+
+	<!-- 유기견 등록 -->
+	<insert id="register">
+		INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea, dogimg, dogcontent)
+		VALUES (#{dogname}, #{size}, #{breed}, #{gender}, #{age}, #{dogarea}, #{dogimg}, #{dogcontent})
+	</insert>
+	
+	<!-- 유기견 수정 -->
+	<update id="modify" parameterType="org.bemypet.domain.AdoptVO" >
+		update tbl_dog set
+			dogname = #{dogname},
+			size = #{size},
+			breed = #{breed},
+			gender = #{gender},
+			age = #{age},
+			dogarea = #{dogarea},
+			dogimg = #{dogimg},
+			dogcontent = #{dogcontent},
+			updatedate = now()
+		where dno = #{dno}
+	</update>
+	
+	<!-- 유기견 삭제 -->
+	<delete id="delete">
+		delete from tbl_dog
+		where dno = #{dno}
+	</delete>
+	
+	
+	<!-- 유기견 총 마리수 -->
+	<select id="dogCnt" resultType="int">
+		select count(*)
+		from tbl_dog
+	</select>
+	
+	<!-- 소형견 몇 마리 -->
+	<select id="smCnt" parameterType="String" resultType="int">
+		select count(*)
+		from tbl_dog
+		where size = #{size}
+	</select>
+	
+	<!-- 중형견 몇 마리 -->
+	<select id="mdCnt" parameterType="String" resultType="int">
+		select count(*)
+		from tbl_dog
+		where size = #{size}
+	</select>
+	
+	<!-- 대형견 몇 마리 -->
+	<select id="lgCnt" parameterType="String" resultType="int">
+		select count(*)
+		from tbl_dog
+		where size = #{size}
+	</select>
+	
+	<!-- A구역 마리수 -->
+	<select id="aareaCnt" parameterType="String" resultType="int">
+		select count(*)
+		from tbl_dog
+		where dogarea = #{dogarea}
+	</select>
+	
+	<!-- B구역 마리수 -->
+	<select id="bareaCnt" parameterType="String" resultType="int">
+		select count(*)
+		from tbl_dog
+		where dogarea = #{dogarea}
+	</select>
+	
+	<!-- C구역 마리수 -->
+	<select id="careaCnt" parameterType="String" resultType="int">
+		select count(*)
+		from tbl_dog
+		where dogarea = #{dogarea}
+	</select>
+	
+	<!-- D구역 마리수 -->
+	<select id="dareaCnt" parameterType="String" resultType="int">
+		select count(*)
+		from tbl_dog
+		where dogarea = #{dogarea}
+	</select>
+	
+</mapper>

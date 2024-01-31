@@ -1,0 +1,299 @@
+
+# 데이터베이스 사용자(root, 1234)를 생성
+CREATE USER 'root'@'localhost' IDENTIFIED BY '1234';
+
+# 데이터베이스 사용자 목록을 조회한다.
+SELECT * FROM mysql.user;
+
+SHOW DATABASES;
+
+# bemypet 데이터베이스 생성
+CREATE DATABASE bemypet;
+
+USE bemypet;
+
+COMMIT;
+
+
+create table tbl_member (
+	userId    		varchar(15)  	not null    	comment '회원아이디',
+	userPass  		varchar(15)   	not null    	comment '회원비밀번호',
+	userName   	char(10)    	not null    	comment '회원명',
+	nickName    	varchar(30) 	not null    	comment '회원별명',
+	gender    		char(1)    		not null    	comment '성별',
+	userTel   		char(13)    			comment '전화번호',
+	userEmail   	varchar(25)   			comment '이메일',
+	regdate   		timestamp		DEFAULT NOW()    	comment '회원가입일',
+	updatedate 	timestamp		DEFAULT NOW()	comment '회원정보수정일',
+	primary key(userId),
+	unique key(nickName)
+) COMMENT '회원관리테이블';
+
+
+SELECT * FROM tbl_board;
+
+CREATE TABLE tbl_board (
+	bno      		INT         		AUTO_INCREMENT 		COMMENT '게시물번호',
+	title    		VARCHAR(50) 	NOT NULL       		COMMENT '게시물제목',
+	content  		TEXT        	NOT NULL       		COMMENT '게시물내용',
+	writer   		VARCHAR(25)	NOT NULL      		COMMENT '작성자',
+	regdate  		TIMESTAMP   	DEFAULT NOW() 		COMMENT '작성일',
+	viewcnt  		INT         		DEFAULT 0     		COMMENT '조회수',
+	viewLike 		INT         		DEFAULT '0'      		COMMENT '좋아요',
+	viewHate		INT        		DEFAULT '0'      		COMMENT '싫음개수',
+	replyCnt  		INT        		DEFAULT '0' 		COMMENT '댓글수',	
+	PRIMARY KEY (bno)
+) COMMENT '게시물';
+
+
+SELECT * FROM tbl_dog;
+
+CREATE TABLE tbl_dog (
+	dno		INT		AUTO_INCREMENT		COMMENT '유기견일련번호',
+	dogname		VARCHAR(20)	NOT NULL		COMMENT '강아지이름',
+	size		VARCHAR(4)	NOT NULL		COMMENT '강아지분류',
+	breed		VARCHAR(25)	NOT NULL		COMMENT '견종',
+	gender		VARCHAR(4)	NOT NULL		COMMENT '강아지성별',
+	age		INT		NOT NULL		COMMENT '강아지나이',
+	dogarea		VARCHAR(8)	NOT NULL		COMMENT '수용구역',	
+	indate		TIMESTAMP	DEFAULT NOW()		COMMENT '유기견입소일',
+	dogimg		TEXT					COMMENT '강아지 이미지',
+	dogContent	TEXT					COMMENT '강아지상세설명',
+	updatedate 	TIMESTAMP 	DEFAULT NOW() 		COMMENT '강아지수정일',
+	PRIMARY KEY (dno)
+) COMMENT '강아지테이블';
+
+
+create TABLE tbl_reserv (
+	num     		int     unsigned        	auto_increment     	comment '예약글번호',
+	userId      		varchar(30)                 	not null                	comment '아이디',
+	category        	CHAR(10)     		not null       	comment '예약종류',
+	subject     	varchar(40)     		not null        	comment '예약제목',
+	content     	varchar(200)        		not null       	comment '예약내용',
+	resdate     	date        			not null		comment '예약날짜',
+	restime     	char(5)     		not null		comment '예약시간',
+	pwd     		varchar(15)     		not null       	comment '비밀번호', 
+	userTel 		CHAR(13)			not null		comment '전화번호',  
+	regdate     	date        					comment '작성일',
+	confirm		CHAR(2)			DEFAULT '0' 	COMMENT '예약완료여부', 
+	count       	int     unsigned        			comment '조회수',
+	dno      		int     					comment '강아지번호',		
+	dogname    	varchar(20)   				comment '강아지이름',
+	primary key (num),
+	foreign key (userId) references tbl_member(userId)    
+) COMMENT '상담예약 테이블';
+
+
+ CREATE TABLE tbl_employee (
+	empid		VARCHAR(30)			COMMENT '아이디',
+	emppass		VARCHAR(50)	NOT NULL	COMMENT '비밀번호',
+	empname		VARCHAR(30)	NOT NULL	COMMENT '이름',
+	department	VARCHAR(30)	NOT NULL	COMMENT '닉네임',
+	emptel		VARCHAR(50)	NOT NULL	COMMENT '전화번호',
+	empemail		VARCHAR(50)	NOT NULL	COMMENT '이메일',
+	joindate		TIMESTAMP	DEFAULT NOW()	COMMENT '등록일',
+	resign		TIMESTAMP	DEFAULT NOW()	COMMENT '수정일',
+	PRIMARY KEY (empid)
+) COMMENT '직원 테이블';
+
+
+CREATE TABLE tbl_reply(
+	rno		INT 				AUTO_INCREMENT	COMMENT '댓글번호',
+	bno	 	INT				not NULL			COMMENT '게시물번호',
+	writer 	VARCHAR(25)		not NULL			COMMENT '작성자',
+	content	VARCHAR(150)	not NULL			COMMENT '댓글내용',
+	regdate 	TIMESTAMP 		DEFAULT NOW()	COMMENT '작성일',
+	PRIMARY KEY(rno),
+	FOREIGN KEY(bno) REFERENCES tbl_board (bno)
+) COMMENT '댓글게시물';
+
+
+
+# tbl_board에 데이터 삽입 
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('코코 입양하고 삶의 질이 향상 되었어요~', '코코는 길에 버려진 유기견이었어요. 비마이펫에서 닿아준 인연이 아이에게 사랑과 희망을 줄 수 있는 기회가 되었습니다. ', '코코엄마');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('사랑이와 함께하는 일상', '사랑이는 마음의 문을 열기까지 오랜 시간이 걸렸지만 지금은 누구보다도 행복한 일상을 보내고 있답니다.', '사랑아빠');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('레몬이와 fall in love', '행복과 사랑을 전하는 일상에 레몬이와 함께할 수 있어서 정말 행복해요~', '레몬트리');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('후추는 행복중', '후추의 행복한 일상을 인스타그램에서 만나보세요 @huchulovechuchu', '후추츄츄');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('마음이를 입양하고..', '마음이를 입양하고 우울증이 많이 좋아졌습니다. 마음이는 정말 사랑인가봐요', '마음가득');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('포도와 한강 나들이', '포도를 산책시킬 때 한강으로 자주 나와요. 여기 계신 분들도 함께 한강 산책 나들이 나오시면 좋을 것 같습니다.', '포도송이');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('솜뭉치와 함께', '우리 뭉치는 솜뭉치 뽀시래기에요 너무 귀여워요', '솜뭉치');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('봉달이 아껴주고 보살피며 누리는 행복한 일상', '봉달이는 쓰레기봉지에 쌓여 버려져있는 아이를 비마이펫에서 구조해 보살펴준 아이입니다.', '봉달쓰');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('기쁨이와 행복한 나날들', '새로운 이름을 지어주고 기쁨이라는 이름처럼 기쁨이에게 기쁨만 가득하길 바라봅니다.', '기쁨마법');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('소소한 일상에 스며든 나의 작은 베베', '유기견 보호소에 있던 아이를 데리고 오길 잘했다고 항상 베베를 보며 느낀답니다.', '베베아베베');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('아픈 너를 성심성의껏 보살핀 후 달라진 모습', '처음 보았을 때, 진드기로 인한 피부병과 귓병을 앓고 있던 너를 성심성의껏 보살핀 결과 달라진 너의 모습', '쿠키런런');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('자는 모습이 크루아상을 닮은 나의 귀여운 브레드', '데리고 온 뒤 케이지 안에서만 지내던 너가 거실에 크루아상처럼 자는 모습을 보니 마음이 놓인다.', '크루아상브레드');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('게시물 테스트 제목1', '게시물 테스트 내용1', '작성자1');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('게시물 테스트 제목2', '게시물 테스트 내용2', '작성자2');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('게시물 테스트 제목3', '게시물 테스트 내용3', '작성자3');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('게시물 테스트 제목4', '게시물 테스트 내용4', '작성자4');
+
+INSERT INTO tbl_board (title, content, writer)
+VALUES ('게시물 테스트 제목5', '게시물 테스트 내용5', '작성자5');
+
+
+
+SELECT * FROM tbl_member;
+
+
+# tbl_member에 데이터 삽입 
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('admin','1234','관리자','관리자','m');
+
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('user01','1234','사용자01','nickname01', 'f');
+
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('user02','1234','사용자02','nickname02', 'f');
+
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('user03','1234','사용자03','nickname03', 'f');
+
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('user04','1234','사용자04','nickname04', 'f');
+
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('user05','1234','사용자05','nickname05', 'f');
+
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('user06','1234','사용자06','nickname06', 'm');
+
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('user07','1234','사용자07','nickname07', 'm');
+
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('user08','1234','사용자08','nickname08', 'm');
+
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('user09','1234','사용자09','nickname09', 'm');
+
+INSERT INTO tbl_member (userid, userpass, username, nickname, gender)
+VALUES ('user10','1234','사용자10','nickname10', 'm');
+
+
+
+SELECT * FROM tbl_employee;
+
+
+#tbl_employee에 데이터 삽입 (상담, 방문, 교육, 계약)
+INSERT INTO tbl_employee (empid, emppass, empname, department, emptel, empemail)
+VALUES ('talk','1234','상담사','상담', '010-0000-0000', 'employee@bemypet.com');
+
+INSERT INTO tbl_employee (empid, emppass, empname, department, emptel, empemail)
+VALUES ('meet','1234','방문','방문', '010-0000-0000', 'employee@bemypet.com');
+
+INSERT INTO tbl_employee (empid, emppass, empname, department, emptel, empemail)
+VALUES ('train','1234','훈련사','교육', '010-0000-0000', 'employee@bemypet.com');
+
+INSERT INTO tbl_employee (empid, emppass, empname, department, emptel, empemail)
+VALUES ('contract','1234','계약','계약', '010-0000-0000', 'employee@bemypet.com');
+
+
+
+SELECT * from tbl_dog;
+
+#tbl_dog에 데이터 삽입
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('애플', '소형견', '치와와', '여아', '3', 'A');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('바나나', '소형견', '시츄', '여아', '3', 'A');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('메론', '소형견', '포메라니안', '남아', '4', 'A');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('워터메론', '소형견', '말티즈', '남아', '4', 'A');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('체리', '소형견', '푸들', '여아', '2', 'A');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('오렌지', '소형견', '비숑프리제', '여아', '2', 'A');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('스트로베리', '소형견', '닥스훈트', '여아', '2', 'A');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('상추', '중형견', '시바이누', '여아', '5', 'B');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('깻잎', '중형견', '진돗개', '남아', '5', 'B');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('무우', '중형견', '웰시코기', '남아', '5', 'B');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('고추', '중형견', '스피츠', '여아', '7', 'B');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('쑥갓', '중형견', '코카스페니얼', '여아', '6', 'B');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('버섯', '중형견', '비글', '남아', '4', 'B');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('자스민', '대형견', '사모예드', '남아', '5', 'C');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('루이보스', '대형견', '스탠다드 푸들', '남아', '5', 'C');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('캐모마일', '대형견', '골든 리트리버', '남아', '4', 'D');
+
+INSERT INTO tbl_dog (dogname, size, breed, gender, age, dogarea)
+VALUES ('페퍼민트', '대형견', '래브라도 리트리버', '여아', '4', 'D');
+
+
+
+
+#tbl_reserv에 데이터 삽입 (상담, 방문, 교육, 계약)
+
+INSERT INTO tbl_reserv (userId, category, subject, resdate, restime, content, pwd, userTel)
+VALUES ('user02', '상담', '상담 예약 드립니다.', '2024-02-01', '15시',  '오후 3시 예약 가능할까요?', '1234', '010-1234-5678');
+
+INSERT INTO tbl_reserv (userId, category, subject, resdate, restime, content, pwd, userTel)
+VALUES ('user03', '상담', '상담 예약 드립니다.','2024-01-15', '15시',   '오후 3시 예약 가능할까요?', '1234', '010-1234-5678');
+
+INSERT INTO tbl_reserv (userId, category, subject, resdate, restime, content, pwd, userTel)
+VALUES ('user01', '교육', '교육 예약 드립니다.', '2024-03-21', '14시',  '오후 2시 예약 가능할까요?', '1234', '010-1234-5678');
+
+INSERT INTO tbl_reserv (userId, category, subject, resdate, restime, content, pwd, userTel)
+VALUES ('user04', '계약', '계약 예약 드립니다.', '2024-01-9', '09시',  '오전 9시 예약 가능할까요?', '1234', '010-1234-5678');
+
+INSERT INTO tbl_reserv (userId, category, subject, resdate, restime, content, pwd, userTel)
+VALUES ('user05', '계약', '계약 예약 드립니다.', '2024-03-03', '10시',  '오전 10시 예약 가능할까요?', '1234', '010-1234-5678');
+
+INSERT INTO tbl_reserv (userId, category, subject, resdate, restime, content, pwd, userTel)
+VALUES ('user06', '상담', '상담 예약 드립니다.','2024-07-07', '10시',   '오전 10시 예약 가능할까요?', '1234', '010-1234-5678');
+

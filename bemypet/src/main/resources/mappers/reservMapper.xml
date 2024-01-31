@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.bemypet.mappers.reserv">
+
+	<!-- 강아지 예약 등록 -->
+	<insert id="awrite" parameterType="org.bemypet.domain.ReservVO">
+		insert into tbl_reserv(userId, category, subject, resdate, restime, content, pwd, userTel, dno, dogname)
+		values (#{userId}, #{category}, #{subject}, #{resdate}, #{restime}, #{content},  #{pwd}, #{userTel}, #{dno}, #{dogname})
+	</insert>
+
+	<!-- 예약 목록 -->
+	<select id="list" resultType="org.bemypet.domain.ReservVO">
+		select *
+		from tbl_reserv
+		order by num desc
+	</select>
+	
+	<!-- 예약 조회  -->
+	<select id="view" parameterType="String" resultType="org.bemypet.domain.ReservVO">		
+		SELECT * 
+		FROM tbl_reserv
+		WHERE  num IN (SELECT max(num) FROM tbl_reserv where userid=#{userid})
+	</select>
+	
+	<!-- 예약 조회  -->
+	<select id="view2" parameterType="int" resultType="org.bemypet.domain.ReservVO">		
+		SELECT * 
+		FROM tbl_reserv
+		WHERE  num =#{num}
+	</select>
+		
+	<!-- 예약 등록 -->
+	<insert id="write" parameterType="org.bemypet.domain.ReservVO">
+		insert into tbl_reserv(userId, category, subject, resdate, restime, content, pwd, userTel)
+		values (#{userId}, #{category}, #{subject}, #{resdate}, #{restime}, #{content},  #{pwd}, #{userTel})
+	</insert>
+	
+	<!-- 예약 수정 -->
+	<update id="modify">
+		update tbl_reserv set
+			category = #{category},
+			subject = #{subject},
+			resdate = #{resdate},
+			restime = #{restime},
+			content = #{content},
+			pwd = #{pwd},
+			userTel = #{userTel}
+		where num =#{num}
+	</update>
+	
+	<!-- 예약 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from tbl_reserv
+		where num=#{num}
+	</delete>
+	
+	<!-- 예약 승인 -->
+	<update id="approv" >
+		update tbl_reserv set
+			confirm = '1'
+		where num=#{num}
+	</update>
+	
+	<!-- 예약 취소 -->
+	<update id="cancel" >
+		update tbl_reserv set
+			confirm = '-1'
+		where num=#{num}
+	</update>
+	
+
+</mapper>
